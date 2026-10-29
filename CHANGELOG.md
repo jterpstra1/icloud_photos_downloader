@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- chore: compatibility report: skip images that only exist for another platform instead of reporting them as failing, stop testing the musl binary on glibc distributions (it can't run there), and include the time zone and locale table in the release notes [#1400](https://github.com/icloud-photos-downloader/icloud_photos_downloader/issues/1400)
 - fix: assets sharing one original (e.g. created with Photos' "Duplicate") were skipped while their neighbour was listed twice, so the download count did not match iCloud's [#1393](https://github.com/icloud-photos-downloader/icloud_photos_downloader/issues/1393)
 - fix: retry the library indexing state check before failing with "Apple iCloud Photo Library has not finished indexing yet" [#1387](https://github.com/icloud-photos-downloader/icloud_photos_downloader/issues/1387)
 - fix: `KeyError: 'dsInfo'` when the saved session is no longer valid and no password is available; icloudpd now reports a login error and exits with code 1 [#1363](https://github.com/icloud-photos-downloader/icloud_photos_downloader/issues/1363)
