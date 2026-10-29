@@ -118,10 +118,11 @@ result() {
 }
 
 platform_matches() {
-    # platform_matches IMAGE: whether the pulled image is for $platform (arm64 images may report arm64/v8)
+    # platform_matches IMAGE: whether the pulled image is for $platform (arm64 images may report
+    # arm64/v8, and old arm32v7 images report arm without a variant)
     local actual
     actual=$(docker image inspect --format '{{.Architecture}}{{if .Variant}}/{{.Variant}}{{end}}' "$1")
-    [ "$actual" = "$platform" ] || [ "${actual%%/*}" = "$platform" ]
+    [ "$actual" = "$platform" ] || [ "${actual%%/*}" = "$platform" ] || [ "$actual/v7" = "$platform" ]
 }
 
 run_image() {
